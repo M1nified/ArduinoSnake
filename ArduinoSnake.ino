@@ -1,4 +1,4 @@
-#include "LedControl.h"
+#include <LedControl.h>
 
 #define CYCLE_TIME 15000
 #define LENGTH 5
@@ -88,7 +88,7 @@ void snakeHead(int x, int y){
     }
   }
   //ustawianie glowy
-  if(curr_spot<64 && curr_spot%GROW_STEP==0) {curr++;}
+  if(curr_spot<60 && curr_spot%GROW_STEP==0) {curr++;}
   pos[curr-1][0] = x;
   pos[curr-1][1] = y;
   lc.setLed(0,x,y,true);
@@ -96,3 +96,4 @@ void snakeHead(int x, int y){
   delay(TIME);
   lc.clearDisplay(0);
 }
+
