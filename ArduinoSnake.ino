@@ -54,16 +54,16 @@ void spiralaOdSrodka(){
   rst();
   for (int i = 3; i >= 0; i--)
   {
-    for(int j=7-i;j>i;j--){
+    for(int j=7-i;j>i;j--){//3
       snakeHead(7-i,j-1);
     }
-    for(int j=7-i;j>i;j--){
+    for(int j=7-i;j>i;j--){//4
       snakeHead(j-1,i);
     }
-    for(int j=i;j<7-i;j++){
+    for(int j=i;j<7-i;j++){//1
       snakeHead(i,j+1);
     }
-    for(int j=i;j<7-i;j++){
+    for(int j=i;j<7-i;j++){//2
       snakeHead(j+1,7-i);
     }
   }
@@ -96,4 +96,3 @@ void snakeHead(int x, int y){
   delay(TIME);
   lc.clearDisplay(0);
 }
-
