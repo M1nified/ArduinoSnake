@@ -5,7 +5,7 @@
 #define GROW_STEP 5
 
 #define TIME CYCLE_TIME / (1 + 128 + 2*(64/GROW_STEP)) // czas kroku weza
-#define MAXLEN 30 //okreslenie maksymalnej dlugosci ogona
+#define MAXLEN 70 //okreslenie maksymalnej dlugosci ogona
 //definicje pinow
 #define DIN 4
 #define CS 2
@@ -78,17 +78,16 @@ void znikanie(){
   }
 }
 void snakeHead(int x, int y){
-  curr_spot++;
   //rysowanie ogona
-  for(int i=0;i<curr;i++){
+  for(int i=0;i<curr-1;i++){//-1 zeby nie wyjsc poza tablice przy przestawianiu
     lc.setLed(0,pos[i][0],pos[i][1],true);
-    if(i<curr-1){//przestawianie ogona
-      pos[i][0] = pos[i+1][0];
-      pos[i][1] = pos[i+1][1];
-    }
+    //przestawianie ogona
+    pos[i][0] = pos[i+1][0];
+    pos[i][1] = pos[i+1][1];
   }
+  lc.setLed(0,pos[curr-1][0],pos[curr-1][1],true);//to czego nie narysowalismy z powodu -1 wyzej
   //ustawianie glowy
-  if(curr_spot<60 && curr_spot%GROW_STEP==0) {curr++;}
+  if(++curr_spot < 64 && curr_spot % GROW_STEP == 0) curr++;
   pos[curr-1][0] = x;
   pos[curr-1][1] = y;
   lc.setLed(0,x,y,true);
@@ -96,3 +95,4 @@ void snakeHead(int x, int y){
   delay(TIME);
   lc.clearDisplay(0);
 }
+
