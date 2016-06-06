@@ -1,11 +1,11 @@
 #include <LedControl.h>
 
-//#define CYCLE_TIME 1500
 #define LENGTH 5
 #define GROW_STEP 16
+#define CYCLE_TIME 500
 
-//#define TIME CYCLE_TIME / (1 + 128 + 2*(64/GROW_STEP)) // czas kroku weza
-#define TIME 500
+//#define TIME //czas wykonania pelnego obiegu
+//#define CYCLE_TIME TIME / (1 + 128 + 2*(64/GROW_STEP)) // czas kroku weza
 #define MAXLEN 70 //okreslenie maksymalnej dlugosci ogona
 //definicje pinow
 #define DIN 4
@@ -33,8 +33,8 @@ void loop()
   snakeHead(-1,-1);
   spiralaOdSrodka();
   znikanie();
-  snakeHead(-1,-1);//schowanie calosci (+1 przy TIME)
-  blin(1);
+  snakeHead(-1,-1);//schowanie calosci (+1 przy CYCLE_TIME)
+  mrugnij();
 }
 void spiralaDoSrodka(){
   rst();
@@ -95,20 +95,20 @@ void snakeHead(int x, int y){
   pos[curr-1][1] = y;
   lc.setLed(0,x,y,true);
   //krok
-  delay(TIME);
+  delay(CYCLE_TIME);
   lc.clearDisplay(0);
 }
-void blin(int num){
+void mrugnij(){
   lc.clearDisplay(0);
-    lc.shutdown(0,true);
+  lc.shutdown(0,true);
   for(int i=0;i<8;i++){
     for(int j=0;j<8;j++){
       lc.setLed(0,i,j,true);
     }
   }
-    delay(TIME);
-    lc.shutdown(0,false);
-    delay(TIME);
-    lc.clearDisplay(0);
-    delay(TIME);
+  delay(CYCLE_TIME);
+  lc.shutdown(0,false);
+  delay(CYCLE_TIME);
+  lc.clearDisplay(0);
+  delay(CYCLE_TIME);
 }
