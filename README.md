@@ -38,8 +38,6 @@ W `loop` wykonywane są wszystkie wymagane animacje, kolejno:
 * `LENGTH` - określa początkową długość węża
 * `GROW_STEP` - określa co ile kroków ma zwiększać się długość ogona
 * `CYCLE_TIME` - odstęp między krokami oraz mrugnięciami
-
-
 * `MAXLEN` - definicja maksymalnej możliwej do zapisania długości węża (na potrzeby tablicy `pos`)
 * `DIN`,`CS`,`CLK` - numery odpowiednich pinów
 
