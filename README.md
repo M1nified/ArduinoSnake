@@ -52,7 +52,7 @@ Aby poprawnie skompilować program potrzebna jest wspomniana już wcześniej bib
 #### Wgrywanie
 Wgrywanie programu na Adafruit Trinket wymaga odpowienich pakietów do Arduino IDE. Wszystkie potrzebne pliki są dostępne pod tym linkiem: https://learn.adafruit.com/adafruit-arduino-ide-setup/arduino-1-dot-6-x-ide#easy-installation Po instalacji wybieramy płytkę `Adafruit Trinket 8MHz` oraz programator `USBtinyISP`. Teraz przytrzymujemy przycisk na płytce i wgrywamy program.
 ### Kod
-``` c
+``` Arduino
 #include <LedControl.h>
 
 #define LENGTH 5
