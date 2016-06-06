@@ -1,10 +1,11 @@
 #include <LedControl.h>
 
-#define CYCLE_TIME 15000
+//#define CYCLE_TIME 1500
 #define LENGTH 5
-#define GROW_STEP 5
+#define GROW_STEP 16
 
-#define TIME CYCLE_TIME / (1 + 128 + 2*(64/GROW_STEP)) // czas kroku weza
+//#define TIME CYCLE_TIME / (1 + 128 + 2*(64/GROW_STEP)) // czas kroku weza
+#define TIME 500
 #define MAXLEN 70 //okreslenie maksymalnej dlugosci ogona
 //definicje pinow
 #define DIN 4
@@ -13,7 +14,7 @@
 LedControl lc = LedControl(DIN, CLK, CS, 1);
 int pos[MAXLEN][2];//historia pozycji glowy weza
 int curr = 0;//aktualna dlugosc weza
-int curr_spot = 1;
+int curr_spot = 1;//numer pola
 void setup()
 {
   for(int i=0;i<LENGTH;i++){
@@ -29,9 +30,11 @@ void loop()
 {
   spiralaDoSrodka();
   znikanie();
+  snakeHead(-1,-1);
   spiralaOdSrodka();
   znikanie();
   snakeHead(-1,-1);//schowanie calosci (+1 przy TIME)
+  blin(1);
 }
 void spiralaDoSrodka(){
   rst();
@@ -95,4 +98,17 @@ void snakeHead(int x, int y){
   delay(TIME);
   lc.clearDisplay(0);
 }
-
+void blin(int num){
+  lc.clearDisplay(0);
+    lc.shutdown(0,true);
+  for(int i=0;i<8;i++){
+    for(int j=0;j<8;j++){
+      lc.setLed(0,i,j,true);
+    }
+  }
+    delay(TIME);
+    lc.shutdown(0,false);
+    delay(TIME);
+    lc.clearDisplay(0);
+    delay(TIME);
+}
