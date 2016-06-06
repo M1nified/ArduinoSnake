@@ -3,6 +3,7 @@ kier,rok,rok_akad
 * MG
 * MS
 * KP
+
 ## Schemat połączeń
 TODO...
 ## Program
@@ -32,6 +33,7 @@ W `loop` wykonywane są wszystkie wymagane animacje, kolejno:
 5. `znikanie()` - chowanie za krawędzią planszy
 6. `snakeHead(-1,-1)` - jeszcze jeden punkt do schowania
 7. `mrugnij()` - wykonanie pojedyńczego mrugnięcia
+
 ### Stałe
 * `LENGTH` - określa początkową długość węża
 * `GROW_STEP` - określa co ile kroków ma zwiększać się długość ogona
