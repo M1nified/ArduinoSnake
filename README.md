@@ -26,6 +26,7 @@ W funkcji `setup` wypełniana jest odpowiadająca początkowej długości częś
 ```
 Pierwszy argument każdej z tych funkcji oznacza numer wyświetlacza, w tym przypadku `0`, bo jest to pierwszy wyświetlacz.  
 W `loop` wykonywane są wszystkie wymagane animacje, kolejno:
+
 1. `spiralaDoSrodka()` - rysowanie do srodka
 2. `znikanie()` - chowanie sie w srodku
 3. `snakeHead(-1,-1)` - jeszcze jeden raz chowamy weża, tak aby był moment pustego wyświetlacza
