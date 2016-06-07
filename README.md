@@ -5,7 +5,7 @@ kier,rok,rok_akad
 * KP
 
 ## Schemat połączeń
-TODO...
+![schematic](https://raw.githubusercontent.com/M1nified/ArduinoSnake/master/schematic.png "Schemat połączeń")
 ## Program
 ### Opis algorytmu
 Działanie programu opiera się głównie na poniższych elementach:
